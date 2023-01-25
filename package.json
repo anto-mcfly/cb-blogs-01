@@ -1,0 +1,19 @@
+{
+  "name": "cb-blogs-01",
+  "version": "1.0.0",
+  "description": "test for CheBanca!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anto-mcfly/cb-blogs-01.git"
+  },
+  "author": "mcfly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anto-mcfly/cb-blogs-01/issues"
+  },
+  "homepage": "https://github.com/anto-mcfly/cb-blogs-01#readme"
+}
