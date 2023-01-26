@@ -21,6 +21,9 @@ userPostTemplate.innerHTML = `
         .comment {
             background-color: #DE5F5BFF;
             font-size: 0.75em;
+            padding: 10px;
+            border-radius: 25px;
+            margin-bottom: 10px
         }
     </style>
 `;
