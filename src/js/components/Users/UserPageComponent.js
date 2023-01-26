@@ -1,5 +1,4 @@
 const errorTemplate = document.createElement('template');
-
 errorTemplate.innerHTML = `
     <div>there is no id into query string</div>
 `;

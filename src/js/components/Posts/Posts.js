@@ -1,4 +1,4 @@
-export class UserPosts extends HTMLElement {
+export class Posts extends HTMLElement {
     constructor() {
         super();
     }

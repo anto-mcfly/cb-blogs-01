@@ -1,5 +1,4 @@
 const userCardTemplate = document.createElement('template');
-
 userCardTemplate.innerHTML = `
     <article class="user-card">
         <header class="user-card__header">

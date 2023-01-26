@@ -1,5 +1,4 @@
 const userPostTemplate = document.createElement('template');
-
 userPostTemplate.innerHTML = `
     <section class="post">
         <div class="post__title__wrapper">
@@ -15,7 +14,7 @@ userPostTemplate.innerHTML = `
     </section>
 `;
 
-export class UserPost extends HTMLElement {
+export class Post extends HTMLElement {
     constructor() {
         super();
 
