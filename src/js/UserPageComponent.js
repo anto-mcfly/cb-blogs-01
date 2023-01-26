@@ -54,6 +54,7 @@ export class UserPageComponent extends HTMLElement {
         const address = `${suite}, ${street}, ${city}, ${zipcode}`;
 
         const userDetails = {
+            id: data.id,
             name: data.name,
             username: data.username,
             email: data.email,

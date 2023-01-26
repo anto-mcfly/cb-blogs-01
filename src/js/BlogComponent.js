@@ -12,14 +12,14 @@ export class BlogComponent extends HTMLElement {
             fetch('https://jsonplaceholder.typicode.com/users')
             .then(data => data.json())
             .then((json) => {
-                this.renderPosts(json);
+                this.renderUsers(json);
                 res();
             })
             .catch((error) => rej(error));
         })
     }
 
-    renderPosts(data) {
+    renderUsers(data) {
         data.forEach(user => {
             const userCardElement = document.createElement('user-card');
 

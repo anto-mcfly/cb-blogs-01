@@ -145,13 +145,16 @@ export class UserCard extends HTMLElement {
             userCardPersonalPageLinkWrapper.remove();
             userCardWebsiteWrapper.remove();
             userCardPhoneWrapper.remove();
-            console.log(address);
+
             userCardAdddress.innerHTML = address;
 
-            //TODO: chiama lista post con lista commenti elementes
+            const userPostsElement = document.createElement('user-posts');
+            userPostsElement.setAttribute('user-id', id);
+            this._shadowRoot.appendChild(userPostsElement);
         }
         else {
             userCardAddressWrapper.remove();
+
             userCardPersonalPageLink.href = userPersonalPageLink;
         }
     }
