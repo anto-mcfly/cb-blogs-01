@@ -7,17 +7,17 @@ export class Comments extends HTMLElement {
         this.getModel();
     }
 
-    get userId() {
-        return this.getAttribute('user-id');
+    get postId() {
+        return this.getAttribute('post-id');
     }
 
     getModel() {
         return new Promise((res, rej) => {
-            fetch('https://jsonplaceholder.typicode.com/posts')
+            fetch(`https://jsonplaceholder.typicode.com/posts/${this.postId}/comments`)
             .then(data => data.json())
             .then((json) => {
-                const posts = json.filter(post => post.userId.toString() === this.userId.toString());
-                this.renderComments(posts);
+                const comments = json.filter(comment => comment.postId.toString() === this.postId.toString());
+                this.renderComments(comments);
                 res();
             })
             .catch((error) => rej(error));
@@ -26,14 +26,18 @@ export class Comments extends HTMLElement {
 
     renderComments(comments) {
         comments.forEach(comment => {            
-            const postElement = document.createElement('comment');
+            const commentElement = document.createElement('post-comment');
         
-            const postDetails = {
-                title: comment.title,
+            const commentDetails = {
+                email: comment.email,
+                title: comment.name,
                 descr: comment.body              
             };
             
-            this.appendChild(postElement);
+            console.log(commentDetails)
+
+            commentElement.setAttribute('data-comment', JSON.stringify(commentDetails));
+            this.appendChild(commentElement);
         });
     }
 

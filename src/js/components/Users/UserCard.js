@@ -157,16 +157,15 @@ export class UserCard extends HTMLElement {
     }
 
     attachUserPosts(userId, name) {
-        const userPostsSectionElement = document.createElement('section');
-        userPostsSectionElement.innerHTML = `
-            <div>
-                <h2>${name}'s Posts</h2>
-            </div>
-        `;
-        this._shadowRoot.appendChild(userPostsSectionElement); 
+        const userPostsSectionElement = document.createElement('div');
+        userPostsSectionElement.innerHTML = `<h2>${name}'s Posts</h2>`;
 
         const userPostsElement = document.createElement('user-posts');
+
+        userPostsElement.appendChild(userPostsSectionElement); 
+            
         userPostsElement.setAttribute('user-id', userId);
+
         this._shadowRoot.appendChild(userPostsElement); 
     }
 }

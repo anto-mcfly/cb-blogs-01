@@ -1,17 +1,27 @@
 const userPostTemplate = document.createElement('template');
 userPostTemplate.innerHTML = `
-    <section class="post">
-        <div class="post__title__wrapper">
-            <h3  class="post__title">
-                <slot id="post-title" name="post-title"></slot>
+    <section class="comment">
+        <div class="comment__email__wrapper">
+            <h3  class="comment__email">
+                <slot id="comment-email" name="comment-email"></slot>
             </h3>
         </div>
-        <div class="post__descr__wrapper">
-            <p class="post__descr">
-                <slot id="post-descr" name="post-descr"></slot>
+        <div class="comment__title__wrapper">
+            <h3  class="comment__title">
+                <slot id="comment-title" name="comment-title"></slot>
+            </h3>
+        </div>
+        <div class="comment__descr__wrapper">
+            <p class="comment__descr">
+                <slot id="comment-descr" name="comment-descr"></slot>
             </p>
         </div>
     </section>
+    <style>
+        .comment {
+            background-color: #DE5F5BFF;
+        }
+    </style>
 `;
 
 export class Comment extends HTMLElement {
@@ -25,38 +35,22 @@ export class Comment extends HTMLElement {
     }
 
     connectedCallback() {
-        this.setUserCardDetails();
+        this.setCommentDetails();
     }
 
-    setUserCardDetails() {
+    setCommentDetails() {
         const {
-            id,
+            email,
             title,
             descr
-        } = JSON.parse(this.dataset.post);
+        } = JSON.parse(this.dataset.comment);
         
-        const postTitle = this._shadowRoot.getElementById('post-title');
-        const postDescr = this._shadowRoot.getElementById('post-descr');
-        
-        postTitle.innerHTML = title;
-        postDescr.innerHTML = descr;
-        
-        this.setAttribute('data-post-id', id);
+        const commentEmail = this._shadowRoot.getElementById('comment-email');
+        const commentTitle = this._shadowRoot.getElementById('comment-title');
+        const commentDescr = this._shadowRoot.getElementById('comment-descr');
 
-        this.attachPostComments(id);
-    }
-
-    attachPostComments(postId, name) {
-        const postCommentsSectionElement = document.createElement('section');
-        postCommentsSectionElement.innerHTML = `
-            <div>
-                <h4>Comments</h4>
-            </div>
-        `;
-        this._shadowRoot.appendChild(postCommentsSectionElement); 
-
-        const postCommentsElement = document.createElement('post-comments');
-        postCommentsElement.setAttribute('post-comments', postId);
-        this._shadowRoot.appendChild(postCommentsElement); 
+        commentEmail.innerHTML = email;
+        commentTitle.innerHTML = title;
+        commentDescr.innerHTML = descr;
     }
 }

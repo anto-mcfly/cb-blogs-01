@@ -47,16 +47,17 @@ export class Post extends HTMLElement {
     }
 
     attachPostComments(postId, name) {
-        const postCommentsSectionElement = document.createElement('section');
-        postCommentsSectionElement.innerHTML = `
-            <div>
-                <h4>Comments</h4>
-            </div>
-        `;
+        const postCommentsSectionElement = document.createElement('div');
+        postCommentsSectionElement.innerHTML = `<h4>Comments</h4>`;
+        
         this._shadowRoot.appendChild(postCommentsSectionElement); 
 
         const postCommentsElement = document.createElement('post-comments');
-        postCommentsElement.setAttribute('post-comments', postId);
+
+        postCommentsElement.appendChild(postCommentsSectionElement); 
+
+        postCommentsElement.setAttribute('post-id', postId);
+
         this._shadowRoot.appendChild(postCommentsElement); 
     }
 }
