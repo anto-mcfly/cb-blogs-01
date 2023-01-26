@@ -34,8 +34,6 @@ export class Comments extends HTMLElement {
                 descr: comment.body              
             };
             
-            console.log(commentDetails)
-
             commentElement.setAttribute('data-comment', JSON.stringify(commentDetails));
             this.appendChild(commentElement);
         });
