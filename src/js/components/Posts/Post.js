@@ -12,6 +12,11 @@ userPostTemplate.innerHTML = `
             </p>
         </div>
     </section>
+    <style>
+        .post {
+            font-size: 1.5em;
+        }
+    </style>
 `;
 
 export class Post extends HTMLElement {

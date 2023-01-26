@@ -20,6 +20,7 @@ userPostTemplate.innerHTML = `
     <style>
         .comment {
             background-color: #DE5F5BFF;
+            font-size: 0.75em;
         }
     </style>
 `;
