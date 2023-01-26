@@ -148,14 +148,26 @@ export class UserCard extends HTMLElement {
 
             userCardAdddress.innerHTML = address;
 
-            const userPostsElement = document.createElement('user-posts');
-            userPostsElement.setAttribute('user-id', id);
-            this._shadowRoot.appendChild(userPostsElement);
+            this.attachUserPosts(id, name);
         }
         else {
             userCardAddressWrapper.remove();
 
             userCardPersonalPageLink.href = userPersonalPageLink;
         }
+    }
+
+    attachUserPosts(userId, name) {
+        const userPostsSectionElement = document.createElement('section');
+        userPostsSectionElement.innerHTML = `
+            <div>
+                <h2>${name}'s Posts</h2>
+            </div>
+        `;
+        this._shadowRoot.appendChild(userPostsSectionElement); 
+
+        const userPostsElement = document.createElement('user-posts');
+        userPostsElement.setAttribute('user-id', userId);
+        this._shadowRoot.appendChild(userPostsElement); 
     }
 }
