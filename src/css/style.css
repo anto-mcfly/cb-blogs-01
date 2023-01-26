@@ -68,6 +68,14 @@ body {
     background-color: #B54748CE;
 }
 
+.header a {
+    text-decoration: none;;
+}
+
+.header a:hover {
+    text-decoration: underline;;
+}
+
 .header__label__wrapper {
     display: flex;
     height: 100%;
@@ -87,3 +95,11 @@ body {
     display: flex;
     justify-content: center;
 }
+
+@media screen and (min-width: 790px) {
+    .blog-component {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+  }

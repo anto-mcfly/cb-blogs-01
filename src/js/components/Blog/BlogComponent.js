@@ -4,6 +4,7 @@ export class BlogComponent extends HTMLElement {
     }
 
     connectedCallback() {
+        this.classList.add('blog-component')
         this.getModel();
     }
 
