@@ -33,9 +33,7 @@ export class UserPosts extends HTMLElement {
                 title: post.title,
                 descr: post.body              
             };
-    
-            console.log(postDetails);
-        
+            
             postElement.setAttribute('data-post', JSON.stringify(postDetails));
             this.appendChild(postElement);
         });

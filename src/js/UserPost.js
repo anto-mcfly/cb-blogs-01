@@ -41,6 +41,23 @@ export class UserPost extends HTMLElement {
         
         postTitle.innerHTML = title;
         postDescr.innerHTML = descr;
-        //postId. = id;
+        
+        this.setAttribute('data-post-id', id);
+
+        this.attachPostComments(id);
+    }
+
+    attachPostComments(postId, name) {
+        const postCommentsSectionElement = document.createElement('section');
+        postCommentsSectionElement.innerHTML = `
+            <div>
+                <h4>Comments</h4>
+            </div>
+        `;
+        this._shadowRoot.appendChild(postCommentsSectionElement); 
+
+        const postCommentsElement = document.createElement('post-comments');
+        postCommentsElement.setAttribute('post-comments', postId);
+        this._shadowRoot.appendChild(postCommentsElement); 
     }
 }
